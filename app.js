@@ -1,10 +1,10 @@
-// Grab DOM elements
+// Grab DOM elements--- important elements
 const form = document.getElementById("regForm");
 const cards = document.getElementById("cards");
 const summaryBody = document.querySelector("#summary tbody");
 const liveRegion = document.getElementById("live-region");
 
-// Simple utils
+// Simple utils--- to check validation
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
 const urlRegex = /^https?:\/\/.+/i;
 
@@ -60,7 +60,7 @@ function validateFieldset(values) {
 
   return valid;
 }
-/* Read the personal details, and return them*/
+/* Read, takes input of the personal details, and return them*/
 function readForm() {
   return {
     firstName: document.getElementById("firstName").value.trim(),
@@ -196,7 +196,7 @@ function handleSubmit(e) {
 
   announce(`Added profile for ${profile.firstName} ${profile.lastName}.`);
 
-  // Optional: reset form after successful add
+  // reset form after successful add
   e.target.reset();
   document.getElementById("firstName").focus();
 }
@@ -226,6 +226,6 @@ function attachInlineValidation() {
   });
 }
 
-// Wire events
+// Wire events---for validation and handling error messages
 form.addEventListener("submit", handleSubmit);
 attachInlineValidation();
