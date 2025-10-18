@@ -8,8 +8,8 @@ const liveRegion = document.getElementById("live-region");
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
 const urlRegex = /^https?:\/\/.+/i;
 
-// Keep an in-memory map for syncing card <-> row
-const registry = new Map(); // id -> profile
+// Keep an in-memory map 
+const registry = new Map(); 
 
 function announce(message) {
   // Update aria-live region for screen readers
@@ -75,7 +75,7 @@ function readForm() {
 
 function placeholderAvatar(name) {
   const initials = name.split(" ").map(p => p[0]?.toUpperCase() || "").join("").slice(0,2) || "U";
-  // tiny SVG data URL fallback
+  
   return `data:image/svg+xml;utf8,` +
     encodeURIComponent(
       `<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128">
@@ -196,7 +196,7 @@ function handleSubmit(e) {
 
   announce(`Added profile for ${profile.firstName} ${profile.lastName}.`);
 
-  // reset form after successful add
+  // reset form after successful addition
   e.target.reset();
   document.getElementById("firstName").focus();
 }
